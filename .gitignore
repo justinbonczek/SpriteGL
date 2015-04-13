@@ -27,3 +27,6 @@
 
 # Build Information
 build/*
+
+# Workflow Files
+*.bat
