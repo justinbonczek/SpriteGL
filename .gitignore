@@ -30,3 +30,11 @@ build/*
 
 # Workflow Files
 *.bat
+
+# Visual Studio Junk
+*.tlog
+*.pdb
+*.idb
+*.log
+*.user
+*.lastbuildstate
