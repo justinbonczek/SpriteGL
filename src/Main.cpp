@@ -1,9 +1,12 @@
 #include "SpriteGL.hpp"
+#include "Timer.hpp"
 
 using namespace sgl;
 
 int main(int argc, char** argv)
 {
+	Timer::Initialize();
+
 	// Initialize GLFW
 	GLFWwindow* window;
 	if (!glfwInit())
@@ -13,12 +16,14 @@ int main(int argc, char** argv)
 	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, NULL, NULL);
 	glfwMakeContextCurrent(window);
 	
-	glewExperimental = GL_TRUE;
 	// Initialize GLEW
+	glewExperimental = GL_TRUE;
 	if (glewInit() != GLEW_OK)
 		return -1;
 
 	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	Texture2D t;
 	t.LoadTexture("Textures/pikachu.png");
@@ -31,14 +36,27 @@ int main(int argc, char** argv)
 	Sprite testSprite;
 	testSprite.SetTexture(t);
 	testSprite.SetShader(s);
+	testSprite.SetSize(100, 100);
+
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 	// Game loop
 	while (!glfwWindowShouldClose(window))
 	{
+		Timer::StartFrame();
+		float dt = Timer::GetFrameTime();
+
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		testSprite.Translate(500 * dt, 500 * dt);
 		testSprite.Draw();	
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
+
+		glFlush();
+
+		Timer::StopFrame();
 	}
 
 	glfwDestroyWindow(window);

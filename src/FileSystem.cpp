@@ -1,6 +1,7 @@
 #include "FileSystem.hpp"
 
 #include "Texture.hpp"
+#include "lodepng.h"
 
 NS_BEGIN
 

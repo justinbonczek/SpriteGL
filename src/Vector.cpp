@@ -2,12 +2,10 @@
 
 #include <cmath>
 
-NS_BEGIN
-
 /////////////
 // Vector2 //
 /////////////
-Vector2::Vector2(){}
+Vector2::Vector2():x(0), y(0){}
 Vector2::Vector2(float value): x(value), y(value){}
 Vector2::Vector2(float x, float y): x(x), y(y){}
 
@@ -22,8 +20,10 @@ Vector2 Vector2::operator/(const float& d){ return Vector2(x / d, y / d); }
 Vector2 Vector2::operator/(const Vector2& v) { return Vector2(x / v.x, y / v.y); }
 bool	Vector2::operator==(const Vector2& v){ return (x == v.x) && (y == v.y); }
 bool	Vector2::operator!=(const Vector2& v){ return x != v.x || y != v.y; }
+float   Vector2::operator[](const int index){ switch (index){ case 0: return x; case 1: return y; default: throw "Index out of range."; } }
 Vector2 operator*(const Vector2& v, float s){ return Vector2(v.x * s, v.y * s); }
 Vector2 operator*(float s, const Vector2& v){ return Vector2(v.x * s, v.y * s); }
+
 
 Vector2 Vector2::Add(Vector2 v1, Vector2 v2){ return Vector2(v1.x + v2.x, v1.y + v2.y); }
 Vector2 Vector2::Clamp(Vector2 v, Vector2 min, Vector2 max)
@@ -60,7 +60,7 @@ Vector2 Vector2::Subtract(Vector2 v1, Vector2 v2){ return Vector2(v1.x - v2.x, v
 /////////////
 // Vector3 //
 /////////////
-Vector3::Vector3(){}
+Vector3::Vector3(): x(0), y(0), z(0){}
 Vector3::Vector3(float value): x(value), y(value), z(value){}
 Vector3::Vector3(Vector2 v2, float z): x(v2.x), y(v2.y), z(z){}
 Vector3::Vector3(float x, float y, float z): x(x), y(y), z(z){}
@@ -76,6 +76,7 @@ Vector3 Vector3::operator/(const float& d){ return Vector3(x / d, y / d, z / d);
 Vector3 Vector3::operator/(const Vector3& v) { return Vector3(x / v.x, y / v.y, z / v.z); }
 bool	Vector3::operator==(const Vector3& v){ return (x == v.x) && (y == v.y) && (z == v.z); }
 bool	Vector3::operator!=(const Vector3& v){ return x != v.x || y != v.y || z != v.z; }
+float   Vector3::operator[](const int index){ switch (index){ case 0: return x; case 1: return y; case 2: return z; default: throw "Index out of range."; } }
 Vector3 operator*(const Vector3& v, float s){ return Vector3(v.x * s, v.y * s, v.z * s); }
 Vector3 operator*(float s, const Vector3& v){ return Vector3(v.x * s, v.y * s, v.z * s); }
 
@@ -118,7 +119,7 @@ Vector3 Vector3::Subtract(Vector3 v1, Vector3 v2){ return Vector3(v1.x - v2.x, v
 /////////////
 // Vector4 //
 /////////////
-Vector4::Vector4(){}
+Vector4::Vector4(): x(0), y(0), z(0), w(0){}
 Vector4::Vector4(float value): x(value), y(value), z(value), w(value){}
 Vector4::Vector4(Vector3 v3, float w): x(v3.x), y(v3.y), z(v3.z), w(w){}
 Vector4::Vector4(Vector2 v2, float z, float w): x(v2.x), y(v2.y), z(z), w(w){}
@@ -135,6 +136,7 @@ Vector4 Vector4::operator/(const float& d){ return Vector4(x / d, y / d, z / d, 
 Vector4 Vector4::operator/(const Vector4& v) { return Vector4(x / v.x, y / v.y, z / v.z, w / v.w); }
 bool	Vector4::operator==(const Vector4& v){ return (x == v.x) && (y == v.y) && (z == v.z) && (w == v.z); }
 bool	Vector4::operator!=(const Vector4& v){ return x != v.x || y != v.y || z != v.z || w != v.w; }
+float   Vector4::operator[](const int index){ switch (index){ case 0: return x; case 1: return y; case 2: return z; case 3: return w; default: throw "Index out of range."; } }
 Vector4 operator*(const Vector4& v, float s){ return Vector4(v.x * s, v.y * s, v.z * s, v.w * s); }
 Vector4 operator*(float s, const Vector4& v){ return Vector4(v.x * s, v.y * s, v.z * s, v.w * s); }
 
@@ -177,5 +179,3 @@ Vector4 Vector4::Reflect(Vector4 v, Vector4 normal)
 	return Vector4(v.x - (normal.x * val), v.y - (normal.y * val), v.z - (normal.z * val), v.w - (normal.w * val));
 }
 Vector4 Vector4::Subtract(Vector4 v1, Vector4 v2){ return Vector4(v1.x - v2.x, v1.y - v2.y, v1.z - v2.z, v1.w - v2.w); }
-
-NS_END

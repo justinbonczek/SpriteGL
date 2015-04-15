@@ -70,6 +70,7 @@
     <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)lib;$(LibraryPath)</LibraryPath>
     <SourcePath>$(VC_SourcePath)</SourcePath>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
@@ -81,6 +82,7 @@
     <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)lib;$(LibraryPath)</LibraryPath>
     <SourcePath>$(VC_SourcePath)</SourcePath>
+    <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
@@ -99,8 +101,8 @@
       <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy "$(SolutionDir)content\*" "$(OutDir)" /s /y
+xcopy "$(SolutionDir)bin\*" "$(OutDir)" /s /y</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
@@ -138,8 +140,8 @@
       <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy "$(SolutionDir)content\*" "$(OutDir)" /s /y
+xcopy "$(SolutionDir)bin\*" "$(OutDir)" /s /y</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
@@ -166,14 +168,18 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Config.cpp" />
     <ClCompile Include="FileSystem.cpp" />
     <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SpriteBatch.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
@@ -182,11 +188,15 @@
     <ClInclude Include="FileSystem.hpp" />
     <ClInclude Include="lodepng.h" />
     <ClInclude Include="Matrix.hpp" />
+    <ClInclude Include="Quaternion.hpp" />
     <ClInclude Include="Rectangle.hpp" />
+    <ClInclude Include="SGLMath.hpp" />
     <ClInclude Include="Shader.hpp" />
     <ClInclude Include="Sprite.hpp" />
+    <ClInclude Include="SpriteBatch.hpp" />
     <ClInclude Include="SpriteGL.hpp" />
     <ClInclude Include="Texture.hpp" />
+    <ClInclude Include="Timer.hpp" />
     <ClInclude Include="Transform.hpp" />
     <ClInclude Include="Vector.hpp" />
   </ItemGroup>

@@ -1,10 +1,7 @@
 #ifndef RECTANGLE_HPP
 #define RECTANGLE_HPP
 
-#include "Config.hpp"
 #include "Vector.hpp"
-
-NS_BEGIN
 
 struct Rectangle
 {
@@ -20,37 +17,37 @@ struct Rectangle
 	/// <summary>
 	/// 
 	/// </summary>
-	int Left();
+	int Left()const;
 
 	/// <summary>
 	/// 
 	/// </summary>
-	int Right();
+	int Right()const;
 
 	/// <summary>
 	/// 
 	/// </summary>
-	int Top();
+	int Top()const;
 
 	/// <summary>
 	/// 
 	/// </summary>
-	int Bottom();
+	int Bottom()const;
 
 	/// <summary>
 	/// 
 	/// </summary>
-	Vector2 Position();
+	Vector2 Position()const;
 
 	/// <summary>
 	/// 
 	/// </summary>
-	Vector2 Size();
+	Vector2 Size()const;
 
 	/// <summary>
 	/// 
 	/// </summary>
-	Vector2 Center();
+	Vector2 Center()const;
 
 	/// <summary>
 	/// 
@@ -112,7 +109,5 @@ struct Rectangle
 	/// </summary>
 	static Rectangle Union(Rectangle r1, Rectangle r2);
 };
-
-NS_END
 
 #endif

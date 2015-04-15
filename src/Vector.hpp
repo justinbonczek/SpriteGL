@@ -1,9 +1,7 @@
-#ifndef IW_VECTOR_HXX
-#define IW_VECTOR_HXX
+#ifndef VECTOR_HPP
+#define VECTOR_HPP
 
-#include "Config.hpp"
-
-NS_BEGIN
+typedef unsigned int uint;
 
 struct Vector2
 {
@@ -33,6 +31,7 @@ struct Vector2
 	Vector2 operator/(const Vector2& v);
 	bool	operator==(const Vector2& v);
 	bool	operator!=(const Vector2& v);
+	float   operator[](const int index);
 	
 	//////////////////////
 	// Static Functions //
@@ -145,6 +144,7 @@ struct Vector3
 	Vector3 operator/(const Vector3& v);
 	bool	operator==(const Vector3& v);
 	bool	operator!=(const Vector3& v);
+	float   operator[](const int index);
 
 	//////////////////////
 	// Static Functions //
@@ -263,6 +263,7 @@ struct Vector4
 	Vector4 operator/(const Vector4& v);
 	bool	operator==(const Vector4& v);
 	bool	operator!=(const Vector4& v);
+	float   operator[](const int index);
 
 	//////////////////////
 	// Static Functions //
@@ -345,7 +346,5 @@ struct Vector4
 
 	// TODO: Transform functions with Matrices and Quaternions
 };
-
-NS_END
 
 #endif

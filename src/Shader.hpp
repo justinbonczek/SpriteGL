@@ -21,6 +21,8 @@ public:
 	Shader();
 	~Shader();
 
+	static Shader SpriteShader;
+
 	/// <summary>
 	/// Creates a shader of given type from file at given path
 	/// </summary>

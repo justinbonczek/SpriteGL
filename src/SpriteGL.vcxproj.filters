@@ -25,11 +25,17 @@
     <Filter Include="Source Files\Math">
       <UniqueIdentifier>{6db8757f-5c5e-41ca-bf5d-5a05ba88cdca}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Filesystem">
-      <UniqueIdentifier>{a5cd5cf3-34e7-451d-a5e2-c044c7658103}</UniqueIdentifier>
+    <Filter Include="Header Files\Utilities">
+      <UniqueIdentifier>{b0db4d01-0bc6-44ab-9ad2-8c8a31c88bf3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\FileSystem">
+    <Filter Include="Source Files\Utilities">
+      <UniqueIdentifier>{2cda4123-b352-4d90-897a-cf2be501cdff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities\FileSystem">
       <UniqueIdentifier>{47055aa5-304e-4704-b11f-8d43d4563b92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utilities\Filesystem">
+      <UniqueIdentifier>{a5cd5cf3-34e7-451d-a5e2-c044c7658103}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -55,13 +61,25 @@
       <Filter>Source Files\Math</Filter>
     </ClCompile>
     <ClCompile Include="FileSystem.cpp">
-      <Filter>Source Files\FileSystem</Filter>
+      <Filter>Source Files\Utilities\FileSystem</Filter>
     </ClCompile>
     <ClCompile Include="Rectangle.cpp">
       <Filter>Source Files\Math</Filter>
     </ClCompile>
     <ClCompile Include="lodepng.cpp">
-      <Filter>Source Files\FileSystem</Filter>
+      <Filter>Source Files\Utilities\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteBatch.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,13 +108,25 @@
       <Filter>Header Files\Math</Filter>
     </ClInclude>
     <ClInclude Include="FileSystem.hpp">
-      <Filter>Header Files\Filesystem</Filter>
+      <Filter>Header Files\Utilities\Filesystem</Filter>
     </ClInclude>
     <ClInclude Include="Rectangle.hpp">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
     <ClInclude Include="lodepng.h">
-      <Filter>Header Files\Filesystem</Filter>
+      <Filter>Header Files\Utilities\Filesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.hpp">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteBatch.hpp">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SGLMath.hpp">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.hpp">
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

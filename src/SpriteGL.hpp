@@ -2,7 +2,7 @@
 #define SPRITEGL_HPP
 
 #include "Sprite.hpp"
-#include "Transform.hpp"
+#include "SGLMath.hpp"
 #include "FileSystem.hpp"
 
 #endif

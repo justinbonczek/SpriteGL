@@ -4,20 +4,13 @@ NS_BEGIN
 
 Sprite::Sprite()
 {
-	location.x = 100;
-	location.y = 100;
-	location.width = 500;
-	location.height = 500;
-	float data[4] = { ScreenToWorld(location.Position()).x, ScreenToWorld(location.Position()).y, 
-		ScreenToWorld(location.Size()).x, ScreenToWorld(location.Size()).y };
+
 
 	glGenVertexArrays(1, &vArray);
 	glBindVertexArray(vArray);
 	
 	glGenBuffers(1, &buffer);
 	glBindBuffer(GL_ARRAY_BUFFER, buffer);
-
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 4, data, GL_STATIC_DRAW);
 
 	// Position & Size
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 4, 0);
@@ -30,6 +23,60 @@ Sprite::Sprite()
 Sprite::~Sprite()
 {}
 
+void Sprite::Draw()
+{
+	float data[4] = { ScreenToWorld(location.Position()).x, ScreenToWorld(location.Position()).y,
+		ScreenToWorld(location.Size()).x, ScreenToWorld(location.Size()).y };
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 4, data, GL_STATIC_DRAW);
+
+	shader.BindShader();
+	texture.BindTexture(shader.GetProgram());
+
+	glBindVertexArray(vArray);
+	glDrawArrays(GL_POINTS, 0, 1);
+}
+
+template<typename T>
+void Sprite::Translate(T x, T y)
+{
+	location.x += x;
+	location.y += y;
+}
+
+template void Sprite::Translate<int>(int, int);
+template void Sprite::Translate<uint>(uint, uint);
+template void Sprite::Translate<float>(float, float);
+template void Sprite::Translate<double>(double, double);
+
+void Sprite::Translate(Vector2 translation)
+{
+	location.x += (int)translation.x;
+	location.y += (int)translation.y;
+}
+
+template<typename T>
+void Sprite::Scale(T x, T y)
+{
+	location.width *= (uint)x;
+	location.height *= (uint)y;
+}
+
+template void Sprite::Scale<int>(int, int);
+template void Sprite::Scale<uint>(uint, uint);
+template void Sprite::Scale<float>(float, float);
+template void Sprite::Scale<double>(double, double);
+
+void Sprite::Scale(Vector2 scale)
+{
+	location.width = (int)((float)location.width * scale.x);
+	location.height = (int)((float)location.height * scale.y);
+}
+
+void Sprite::Rotate(float angle)
+{
+	// TODO: Implement sprite rotation
+}
+
 void Sprite::SetShader(Shader& shader)
 {
 	this->shader = shader;
@@ -40,18 +87,50 @@ void Sprite::SetTexture(Texture2D& tex)
 	texture = tex;
 }
 
-void Sprite::SetLocation(Rectangle rect)
+template<typename T>
+void Sprite::SetPosition(T x, T y)
 {
-	location = rect;
+	location.x = (int)x;
+	location.y = (int)y;
 }
 
-void Sprite::Draw()
-{
-	shader.BindShader();
-	texture.BindTexture(shader.GetProgram());
+template void Sprite::SetPosition<int>(int, int);
+template void Sprite::SetPosition<uint>(uint, uint);
+template void Sprite::SetPosition<float>(float, float);
+template void Sprite::SetPosition<double>(double, double);
 
-	glBindVertexArray(vArray);
-	glDrawArrays(GL_POINTS, 0, 1);
+void Sprite::SetPosition(Vector2 newPosition)
+{
+	location.x = (int)newPosition.x;
+	location.y = (int)newPosition.y;
+}
+
+template<typename T>
+void Sprite::SetSize(T x, T y)
+{
+	location.width = (uint)x;
+	location.height = (uint)y;
+}
+
+template void Sprite::SetSize<int>(int, int);
+template void Sprite::SetSize<uint>(uint, uint);
+template void Sprite::SetSize<float>(float, float);
+template void Sprite::SetSize<double>(double, double);
+
+void Sprite::SetSize(Vector2 newSize)
+{
+	location.width = (int)newSize.x;
+	location.height = (int)newSize.y;
+}
+
+Vector2 Sprite::GetPosition()const
+{
+	return location.Position();
+}
+
+Vector2 Sprite::GetSize()const
+{
+	return location.Size();
 }
 
 NS_END

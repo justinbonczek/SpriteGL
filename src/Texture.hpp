@@ -2,7 +2,6 @@
 #define TEXTURE_HPP
 
 #include "Config.hpp"
-#include "lodepng.h"
 
 NS_BEGIN
 
