@@ -41,6 +41,11 @@ public:
 	/// Returns the texture's height in pixels
 	/// </summary>
 	uint GetHeight()const;
+
+	/// <summary>
+	/// Returns the texture's width and height in pixels
+	/// </summary>
+	Vector2 GetSize()const;
 private:
 	Image image;
 	uint texture;

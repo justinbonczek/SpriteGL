@@ -4,8 +4,6 @@ NS_BEGIN
 
 Sprite::Sprite()
 {
-
-
 	glGenVertexArrays(1, &vArray);
 	glBindVertexArray(vArray);
 	
@@ -85,6 +83,11 @@ void Sprite::SetShader(Shader& shader)
 void Sprite::SetTexture(Texture2D& tex)
 {
 	texture = tex;
+	if (!(location.width) && !(location.height))
+	{
+		location.width = tex.GetWidth();
+		location.height = tex.GetHeight();
+	}
 }
 
 template<typename T>

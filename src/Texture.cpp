@@ -51,4 +51,8 @@ uint Texture2D::GetHeight()const
 	return image.height;
 }
 
+Vector2 Texture2D::GetSize()const
+{
+	return Vector2(image.width, image.height);
+}
 NS_END

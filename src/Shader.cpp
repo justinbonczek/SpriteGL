@@ -4,16 +4,27 @@
 
 NS_BEGIN
 
-Shader::Shader()
-{
-	program = glCreateProgram();
-}
+Shader Shader::SpriteShader;
+
+Shader::Shader():
+program(0)
+{}
 
 Shader::~Shader()
 {}
 
+void Shader::Initialize()
+{
+	SpriteShader.CreateShader("Shaders/Vertex/sprite.vert", Vertex);
+	SpriteShader.CreateShader("Shaders/Geometry/sprite.geom", Geometry);
+	SpriteShader.CreateShader("Shaders/Fragment/sprite.frag", Fragment);
+}
+
 bool Shader::CreateShader(const char* filepath, ShaderType type)
 {
+	if (!program)
+		program = glCreateProgram();
+
 	const char* shaderCode = FileSystem::LoadTextFile(filepath);
 
 	if (!shaderCode)

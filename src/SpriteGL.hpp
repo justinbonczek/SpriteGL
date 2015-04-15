@@ -1,8 +1,8 @@
 #ifndef SPRITEGL_HPP
 #define SPRITEGL_HPP
 
-#include "Sprite.hpp"
+#include "SGLGraphics.hpp"
 #include "SGLMath.hpp"
-#include "FileSystem.hpp"
+#include "SGLUtilities.hpp"
 
 #endif

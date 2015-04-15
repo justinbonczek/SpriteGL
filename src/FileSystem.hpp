@@ -19,7 +19,7 @@ public:
 	/// <summary>
 	/// Initializes FileSystem
 	/// </summary>
-	bool Initialize();
+	static bool Initialize();
 
 	/// <summary>
 	/// 
@@ -30,7 +30,6 @@ public:
 	/// Internal function to handle PNG loading
 	/// </summary>
 	static Image LoadPNGFromFile(const char* filepath);
-
 private:
 	FileSystem();
 	static FileSystem instance;

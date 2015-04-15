@@ -14,6 +14,7 @@ m31(m31), m32(m32), m33(m33), m34(m34),
 m41(m41), m42(m42), m43(m43), m44(m44)
 {}
 
+// TODO: Fix method to work properly
 float* Matrix::ToArray() { float arr[16] = { m11, m12, m13, m14, m21, m22, m23, m24, m31, m32, m33, m34, m41, m42, m43, m44 };	return arr; }
 float Matrix::Determinant()
 {

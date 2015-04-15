@@ -19,7 +19,7 @@ Vector2 Rectangle::Size()const { return Vector2((float)width, (float)height); }
 Vector2 Rectangle::Center()const { return Vector2(x + width / 2.0f, y + height / 2.0f); }
 
 bool Rectangle::Contains(Vector2 v) { return ((((x <= v.x) && (v.x < (x + width))) && ((y <= v.y)) && (v.y < (y + height)))); }
-// TODO: Finish Rectangle Functions
+	// TODO: Finish Rectangle Functions
 //bool Rectangle::Contains(int x, int y){}
 //bool Rectangle::Contains(float x, float y){}
 //bool Rectangle::Contains(Rectangle r){}

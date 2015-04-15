@@ -23,6 +23,8 @@ public:
 
 	static Shader SpriteShader;
 
+	static void Initialize();
+
 	/// <summary>
 	/// Creates a shader of given type from file at given path
 	/// </summary>
@@ -40,7 +42,6 @@ public:
 private:
 	uint vertex, tessControl, tessEval, geometry, fragment, compute;
 	uint program;
-	uint resolution;
 };
 
 NS_END
