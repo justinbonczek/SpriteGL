@@ -1,7 +1,7 @@
 #ifndef SGLUTILITIES_HPP
 #define SGLUTILITIES_HPP
 
-#include "Timer.hpp"
-#include "FileSystem.hpp"
+#include "Utility\Timer.hpp"
+#include "Utility\FileSystem.hpp"
 
 #endif

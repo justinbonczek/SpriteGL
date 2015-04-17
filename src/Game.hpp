@@ -15,18 +15,19 @@ public:
 	// TODO: Document game class
 	int Initialize();
 	int Run();
-
 private:
 	Game();
 	static Game instance;
 
-	std::vector<Sprite*> objects;
+	Texture2D* mtex;
+	Shader* mshader;
+	Sprite* msprite;
 
 	void LoadAssets();
 	void Update(float dt);
 	void Draw();
 	void Shutdown();
-
+	
 	GLFWwindow* window;
 };
 

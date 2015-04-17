@@ -31,58 +31,61 @@
     <Filter Include="Source Files\Utilities">
       <UniqueIdentifier>{2cda4123-b352-4d90-897a-cf2be501cdff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Utilities\FileSystem">
-      <UniqueIdentifier>{47055aa5-304e-4704-b11f-8d43d4563b92}</UniqueIdentifier>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{fc28088b-1125-4bce-9da7-aefe239815b6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Utilities\Filesystem">
-      <UniqueIdentifier>{a5cd5cf3-34e7-451d-a5e2-c044c7658103}</UniqueIdentifier>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{d972e5f3-f5c4-47b6-8f5d-bb7830a8e953}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrix.cpp">
-      <Filter>Source Files\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>Source Files\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector.cpp">
-      <Filter>Source Files\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="FileSystem.cpp">
-      <Filter>Source Files\Utilities\FileSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="Rectangle.cpp">
-      <Filter>Source Files\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="lodepng.cpp">
-      <Filter>Source Files\Utilities\FileSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="Quaternion.cpp">
-      <Filter>Source Files\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="SpriteBatch.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Source Files\Utilities</Filter>
-    </ClCompile>
     <ClCompile Include="Config.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Matrix.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Quaternion.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Rectangle.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Transform.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Vector.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\FileSystem.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\lodepng.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\Timer.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Shader.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Sprite.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\SpriteBatch.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Texture.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\TextRenderer.cpp">
+      <Filter>Source Files\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,44 +95,8 @@
     <ClInclude Include="SpriteGL.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Shader.hpp">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.hpp">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.hpp">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Matrix.hpp">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Transform.hpp">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector.hpp">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="FileSystem.hpp">
-      <Filter>Header Files\Utilities\Filesystem</Filter>
-    </ClInclude>
-    <ClInclude Include="Rectangle.hpp">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="lodepng.h">
-      <Filter>Header Files\Utilities\Filesystem</Filter>
-    </ClInclude>
-    <ClInclude Include="Quaternion.hpp">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteBatch.hpp">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="SGLMath.hpp">
       <Filter>Header Files\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Timer.hpp">
-      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Game.hpp">
       <Filter>Header Files</Filter>
@@ -139,6 +106,45 @@
     </ClInclude>
     <ClInclude Include="SGLUtilities.hpp">
       <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Matrix.hpp">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Quaternion.hpp">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Rectangle.hpp">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Transform.hpp">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Vector.hpp">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\FileSystem.hpp">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\lodepng.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\Timer.hpp">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Shader.hpp">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Sprite.hpp">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\SpriteBatch.hpp">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Texture.hpp">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\TextRenderer.hpp">
+      <Filter>Header Files\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

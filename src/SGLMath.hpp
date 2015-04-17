@@ -5,9 +5,9 @@
 
 typedef unsigned int uint;
 
-#include "Vector.hpp"
-#include "Matrix.hpp"
-#include "Quaternion.hpp"
-#include "Transform.hpp"
+#include "Math\Vector.hpp"
+#include "Math\Matrix.hpp"
+#include "Math\Quaternion.hpp"
+#include "Math\Transform.hpp"
 
 #endif

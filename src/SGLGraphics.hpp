@@ -2,6 +2,7 @@
 #define SGLGRAPHICS_HPP
 
 #include "SGLMath.hpp"
-#include "Sprite.hpp"
+#include "Graphics\Sprite.hpp"
+#include "Graphics\TextRenderer.hpp"
 
 #endif

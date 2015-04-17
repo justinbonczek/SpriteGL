@@ -1,5 +1,4 @@
 #include "Game.hpp"
-
 NS_BEGIN
 
 Game Game::instance;
@@ -8,7 +7,11 @@ Game::Game()
 {}
 
 Game::~Game()
-{}
+{
+	delete mtex;
+	delete mshader;
+	delete msprite;
+}
 
 Game* Game::GetInstance()
 {
@@ -17,9 +20,6 @@ Game* Game::GetInstance()
 
 int Game::Initialize()
 {
-	Timer::Initialize();
-	FileSystem::Initialize();
-
 	if (!glfwInit())
 		return -1;
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -38,7 +38,11 @@ int Game::Initialize()
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
+	// Subsystem initializaion
+	Timer::Initialize();
+	FileSystem::Initialize();
 	Shader::Initialize();
+	TextRenderer::Initialize();
 
 	return true;
 }
@@ -55,7 +59,7 @@ int Game::Run()
 
 		Update(dt);
 		Draw();
-
+		
 		Timer::StopFrame();
 	}
 
@@ -65,37 +69,34 @@ int Game::Run()
 
 void Game::LoadAssets()
 {
-	Texture2D* playerTexture = new Texture2D();
-	playerTexture->LoadTexture("Textures/pikachu.png");
+	mtex = new Texture2D();
+	mshader = new Shader();
+	msprite = new Sprite();
+	mtex->LoadTexture("Textures/pikachu.png");
+	*mshader = Shader::SpriteShader;
 
-	Shader* spriteShader = new Shader();
-	*spriteShader = Shader::SpriteShader;
+	msprite->SetTexture(mtex);
+	msprite->SetShader(mshader);
+	msprite->SetPosition(250, 50);
+	msprite->SetSize(250, 250);
 
-	Sprite* player = new Sprite();
-	player->SetTexture(*playerTexture);
-	player->SetShader(*spriteShader);
-	player->SetPosition(100, 100);
-	//player->SetSize(100, 100);
-
-	objects.push_back(player);
+	TextRenderer::SetFontColor(0.8, 0.4, 0.6, 1.0);
+	TextRenderer::SetFont("Fonts/impact.ttf");
+	TextRenderer::SetFontSize(36);
 }
 
 void Game::Update(float dt)
 {
-	for (Sprite* p : objects)
-	{
-		// TODO: Update Sprites
-	}
+
 }
 
 void Game::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	for (Sprite* p : objects)
-	{
-		p->Draw();
-	}
+	msprite->Draw();
+
+	TextRenderer::RenderText("Example Text.", 100, 100);
 
 	glfwSwapBuffers(window);
 	glfwPollEvents();
@@ -107,5 +108,4 @@ void Game::Shutdown()
 {
 	glfwDestroyWindow(window);
 }
-
 NS_END
